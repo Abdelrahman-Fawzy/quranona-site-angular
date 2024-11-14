@@ -1,0 +1,80 @@
+<section class="quran-section">
+  <div class="container">
+    <div class="flex-box">
+      <div class="header">
+        <h3>القرآن الكريم</h3>
+      </div>
+      <div class="actions d-flex align-items-center justify-content-between gap-3 flex-wrap">
+        <div class="readers d-flex align-items-center">
+          <p>يمكنك اختيار القراء من هنا</p>
+          <select class="form-select" (change)="changeReciter($event)">
+            <option *ngFor="let reciter of reciters" [value]="reciter.id" [selected]="reciter.id == reciterId">
+              {{ reciter.name }}
+            </option>
+          </select>
+        </div>
+        <div class="filter">
+          <div class="form-group">
+            <input (input)="filterSurahs($event)" class="form-control filter-surah" type="text" placeholder="ابحث باسم السورة" />
+          </div>
+        </div>
+      </div>
+      <div class="surahs-box">
+        <div class="surah" *ngFor="let surah of surahs;let i = index">
+          <p (click)="openAyatBox(surah)">{{ removeTashkeel(surah.name) }}</p>
+          <p (click)="openAyatBox(surah)">{{ surah.englishName }}</p>
+          <div class="actions">
+            <button class="play-surah bg-transparent border-0 p-0" (click)="getSurahs(i + 1, removeTashkeel(surah.name))">
+              <i class="fa-regular fa-circle-play"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ayat-box">
+    <div class="box d-none d-md-flex">
+      <button class="close" (click)="closeAyatBox()">
+        <i class="fa-regular fa-circle-xmark"></i>
+      </button>
+      <ul class="list-unstyled">
+        <li *ngFor="let ayah of ayahs; let i = index">
+          <span>{{ ayah.numberInSurah }}- {{ ayah.text }}</span>
+          <button class="bg-transparent border-0 play-button" (click)="playAudio(ayah.audio, i)">
+            <i class="fa-solid fa-play"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="box d-md-none">
+      <button class="close responsive" (click)="closeAyatBox()">
+        <i class="fa-regular fa-circle-xmark"></i>
+      </button>
+      <ul class="list-unstyled responsive">
+        <li *ngFor="let ayah of ayahs; let i = index">
+          <span>{{ ayah.numberInSurah }}- {{ ayah.text }}</span>
+          <button class="bg-transparent border-0 play-button responsive" (click)="playAudio(ayah.audio, i)">
+            <i class="fa-solid fa-play"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="current-surah-playing">
+    <div class="surah-details">
+      <h4>{{surahName}}</h4>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <div class="audio">
+        <!-- <audio controls="" autoplay>
+          <source [src]="surahUrl" type="audio/mpeg" />
+        </audio> -->
+      </div>
+      <div class="actions">
+        <button id="close-player-button" class="bg-transparent border-0 p-0 close-player" (click)="closePlayer()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+<div class="hadith-info py-4">
+  <div class="container">
+    <div class="brief-about-slug">
+      <div class="d-flex justify-content-end">
+        <button class="bg-transparent border-0 p-0 d-flex align-items-center gap-2" style="font-size: 20px;" [routerLink]="'/home'">
+          <span>عودة</span>
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+      </div>
+      <div class="box">
+        <div class="header">
+          <span>{{bookDetails.bookNameAr}}</span>
+          <span>{{bookDetails.bookNameEn}}</span>
+        </div>
+        <div class="body">
+          <p>{{bookDetails.bookDescription}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="chapters-list">
+      <ul class="list-unstyled d-flex flex-column p-0 m-0">
+        <li *ngFor="let chapter of hadithChapters">
+          <a [routerLink]="'/hadith-info/' + bookSlug + '/' + chapter.chapterNumber"> 
+            <div class="chapter-name-ar">
+              <span class="chapter-number">{{chapter.chapterNumber}}</span>
+              <span class="chapter-name">{{chapter.chapterArabic}}</span>
+            </div>
+            <div class="chapter-name-en"><span class="chapter-name">{{chapter.chapterEnglish}}</span></div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

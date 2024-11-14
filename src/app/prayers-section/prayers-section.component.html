@@ -1,0 +1,39 @@
+<section class="prayers-section" *ngIf="prayers">
+  <div class="container">
+    <div class="flex-box">
+      <div class="header">
+        <h3>{{prayerSectionTitle}}</h3>
+      </div>
+      <div class="24Format d-flex align-items-center gap-3">
+        <p class="m-0 fs-4">عرض بنظام ال 24 ساعة </p>
+        <p-inputSwitch class="d-flex" [(ngModel)]="Hours24Format" (onChange)="changeFormat()" />
+      </div>
+      <div class="prayers">
+        <div class="pray-time">
+          <div class="name"><span>الفجر</span></div>
+          <div class="time"><span>{{ Hours24Format ? prayers.data.timings.Fajr : transformTo24Hour(prayers.data.timings.Fajr)}}</span></div>
+        </div>
+        <div class="pray-time">
+          <div class="name"><span>الشروق</span></div>
+          <div class="time"><span>{{ Hours24Format ? prayers.data.timings.Sunrise : transformTo24Hour(prayers.data.timings.Sunrise)}}</span></div>
+        </div>
+        <div class="pray-time">
+          <div class="name"><span>الظهر</span></div>
+          <div class="time"><span>{{ Hours24Format ? prayers.data.timings.Dhuhr : transformTo24Hour(prayers.data.timings.Dhuhr)}}</span></div>
+        </div>
+        <div class="pray-time">
+          <div class="name"><span>العصر</span></div>
+          <div class="time"><span>{{ Hours24Format ? prayers.data.timings.Asr : transformTo24Hour(prayers.data.timings.Asr)}}</span></div>
+        </div>
+        <div class="pray-time">
+          <div class="name"><span>المغرب</span></div>
+          <div class="time"><span>{{ Hours24Format ? prayers.data.timings.Maghrib : transformTo24Hour(prayers.data.timings.Maghrib)}}</span></div>
+        </div>
+        <div class="pray-time">
+          <div class="name"><span>العشاء</span></div>
+          <div class="time"><span>{{ Hours24Format ? prayers.data.timings.Isha : transformTo24Hour(prayers.data.timings.Isha)}}</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

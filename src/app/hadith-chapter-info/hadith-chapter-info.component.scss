@@ -1,0 +1,87 @@
+.hadith-info {
+  background: url('/assets/bg_small.png');
+  background-position: center top;
+  min-height: 100vh;
+  .brief-about-slug {
+    margin-top: 6em;
+    .box {
+      background: rgba(255, 255, 255, 0.5);
+      padding: 2em;
+      margin-top: 1em;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        span:first-child {
+          font-size: 26px;
+          font-family: 'Kfgqpc Uthman Taha Naskh';
+        }
+        span:last-child {
+          font-size: 18px;
+          font-family: "Montserrat", sans-serif;
+        }
+      }
+      .body {
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .chapters-list {
+    margin-top: 3em;
+    ul {
+      li {
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: rgba(255, 255, 255, 0.6);
+          padding: 0.5em 1em;
+          color: initial;
+          text-decoration: none;
+          .chapter-name-ar {
+            display: flex;
+            align-items: center;
+            gap: 2em;
+            span.chapter-name {
+              font-size: 24px;
+              font-family: 'Kfgqpc Uthman Taha Naskh';
+            }
+          }
+          .chapter-name-en {
+            span.chapter-name {
+              color: #5F9999;
+              font-size: 18px;
+              font-family: "Montserrat", sans-serif;
+            }
+          }
+        }
+        &:first-child {
+          a {
+            border-radius: 5px 5px 0 0;
+          }
+        }
+        &:last-child {
+          a {
+            border-radius: 0 0 5px 5px;
+          }
+        }
+        &:nth-child(odd) {
+          a {
+            background: rgba(255, 255, 255, 0.6);
+          }
+        }
+        &:nth-child(even) {
+          a {
+            background: rgba(255, 255, 255, 0.4);
+          }
+        }
+      }
+    }
+  }
+}

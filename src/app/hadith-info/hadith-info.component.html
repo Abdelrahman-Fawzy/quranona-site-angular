@@ -1,0 +1,31 @@
+<div class="hadith-info py-4">
+  <div class="container">
+    <div class="header d-flex align-items-center justify-content-between" *ngIf="chapter">
+      <div class="chapter-name-ar">
+        <span class="chapter-number">{{chapter.chapterNumber}}</span>
+        <span class="chapter-name">{{chapter.chapterArabic}}</span>
+      </div>
+      <div class="chapter-name-en d-flex align-items-center gap-3">
+        <span class="chapter-name">{{chapter.chapterEnglish}}</span>
+        <button class="bg-transparent border-0 p-0 d-flex align-items-center gap-2" style="font-size: 20px;" [routerLink]="'/hadith-chapter-info/' + bookSlug">
+          <span>عودة</span>
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+      </div>
+    </div>
+    <div class="hadith-box" *ngFor="let hadith of hadiths">
+      <div class="chapters">
+        <p>({{hadith.hadithNumber}}) باب {{hadith.headingArabic}}</p>
+      </div>
+      <div class="hadith">
+        <p>{{hadith.hadithArabic}}</p>
+      </div>
+    </div>
+    <p-paginator 
+      (onPageChange)="onPageChange($event)" 
+      [first]="first"
+      [rows]="paginate" 
+      [totalRecords]="totalItems" 
+      [rowsPerPageOptions]="[5, 10, 15, 20, 25, 30]" />
+  </div>
+</div>

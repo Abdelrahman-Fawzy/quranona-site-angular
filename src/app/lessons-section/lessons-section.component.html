@@ -1,0 +1,21 @@
+<section class="lessons-section">
+  <div class="container">
+    <div class="flex-box">
+      <div class="header">
+        <h3>دروس مهمة</h3>
+      </div>
+      <div class="lessons">
+        <div class="row">
+          <div class="col-lg-4 col-md-6" *ngFor="let lesson of lessons">
+            <div class="lesson-card">
+              <a [href]="lesson.url" target="_blank">
+                <img class="img-fluid w-100 h-100" src="assets/playlists/{{lesson.lessonNumber}}.jpeg" alt="">
+                <span>{{lesson.lessonName}}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

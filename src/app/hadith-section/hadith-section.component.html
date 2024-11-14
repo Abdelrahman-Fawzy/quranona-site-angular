@@ -1,0 +1,28 @@
+<section class="hadith-section">
+  <div class="container">
+    <div class="flex-box">
+      <div class="header">
+        <h3>الأحاديث</h3>
+      </div>
+      <ul class="list-unstyled d-flex align-items-center justify-content-between flex-wrap gap-3 p-0 m-0 hadiths-books">
+        <li *ngFor="let book of books;let i = index">
+          <a [routerLink]="'/hadith-chapter-info/' + book.bookSlug"> 
+            <div class="hadith">
+              <p>{{booksArabicNames[i]}}</p>
+              <p>{{book.bookName}}</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <!-- <div class="hadith-box" *ngIf="hadith">
+        <q>{{hadith.data[0].hadithArabic}}</q>
+        <span>( {{hadith.data[0].status == 'Sahih' || hadith.data[0].status == 'sahih' ? 'حديث صحيح' : hadith.data[0].status == 'Hasan' ? 'حديث حسن' : 'حديث ضعيف'}} )</span>
+        <div class="hadith-number"><span>{{hadith.current_page}} / {{hadith.total}}</span></div>
+      </div>
+      <div class="footer">
+        <button class="next" (click)="nextHadith()"><i class="fa-solid fa-arrow-right-long"></i><span>التالي</span></button>
+        <button class="prev" (click)="prevHadith()"><span>السابق</span><i class="fa-solid fa-arrow-left-long"></i></button>
+      </div> -->
+    </div>
+  </div>
+</section>

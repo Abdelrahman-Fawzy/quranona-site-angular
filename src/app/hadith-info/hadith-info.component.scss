@@ -1,0 +1,66 @@
+.hadith-info {
+  background: url('/assets/bg_small.png');
+  background-position: center top;
+  min-height: 100vh;
+  .header {
+    margin-top: 6em;
+    .chapter-name-ar {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+      span.chapter-number { font-size: 20px; }
+      span.chapter-name {
+        font-size: 35px;
+        font-family: 'Kfgqpc Uthman Taha Naskh';
+      }
+    }
+    .chapter-name-en {
+      span.chapter-name {
+        font-size: 27px;
+        font-family: "Montserrat", sans-serif;
+      }
+    }
+  }
+  .hadith-box {
+    position: relative;
+    &::before {
+      content: '';
+      background-image: url('/assets/icon.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: -30px;
+      top: 10px;
+    }
+    .chapters {
+      background: rgba(255, 255, 255, 0.5);
+      padding: 1em;
+      margin-top: 1em;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      p {
+        margin: 0;
+        font-family: 'Kfgqpc Uthman Taha Naskh';
+      }
+    }
+    .hadith {
+      background: rgba(255, 255, 255, 0.5);
+      padding: 2em;
+      margin-top: 1em;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      box-shadow: 0 21px 28px -21px rgba(0,0,0,.09), 0 22px 29px rgba(0,0,0,.02);
+      p {
+        font-size: 30px;
+        margin: 0;
+        font-family: 'Kfgqpc Uthman Taha Naskh';
+      }
+    }
+  }
+}
