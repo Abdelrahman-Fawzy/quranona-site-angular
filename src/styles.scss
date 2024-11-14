@@ -617,6 +617,14 @@ section.prayers-section {
     }
   }
 
+  section.hadith-section ul.hadiths-books li .hadith {
+    justify-content: space-between !important;
+  }
+
+  section:not(.main-section) .header h3 {
+    font-size: 22px !important;
+  }
+
   .hadith-info {
     .hadith-box {
       .hadith {
@@ -642,6 +650,26 @@ section.prayers-section {
           }
         }
       }
+    }
+  }
+
+  .hadith-info .brief-about-slug .box {
+    padding: 1em !important;
+  }
+
+  .hadith-info .brief-about-slug .box .header span:first-child {
+    font-size: 24px !important;
+  }
+
+  .hadith-info .brief-about-slug .box .header span:last-child {
+    font-size: 16px !important;
+  }
+
+  .hadith-info.detailed .header {
+    flex-direction: column !important;
+    .chapter-name-en {
+      width: 100%;
+      justify-content: space-between;
     }
   }
 
