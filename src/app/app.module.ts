@@ -15,6 +15,9 @@ import { HadithInfoComponent } from './hadith-info/hadith-info.component';
 import { PaginatorModule } from 'primeng/paginator';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { LessonsSectionComponent } from './lessons-section/lessons-section.component';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
 
 @NgModule({
   declarations: [
@@ -34,9 +37,12 @@ import { LessonsSectionComponent } from './lessons-section/lessons-section.compo
     SharedModule,
     HttpClientModule,
     PaginatorModule,
-    InputSwitchModule
+    InputSwitchModule,
+    ToastModule
 ],
-  providers: [],
+  providers: [
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

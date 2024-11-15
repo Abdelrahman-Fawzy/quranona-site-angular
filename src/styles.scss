@@ -78,6 +78,21 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+.p-toast-message-icon {
+  display: flex;
+  align-items: center;
+}
+
+.p-toast-message-content {
+  gap: 16px;
+}
+
+.p-toast-detail {
+  font-family: 'Kfgqpc Uthman Taha Naskh';
+  font-size: 22px;
+  margin: 0;
+}
 // end framework
 
 // start header
@@ -167,6 +182,9 @@ header.navbar {
     border-radius: 4px;
     padding: 7px;
     font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   a {
     color: #FFF;
@@ -619,6 +637,12 @@ section.prayers-section {
 
   section.hadith-section ul.hadiths-books li .hadith {
     justify-content: space-between !important;
+    p:first-child {
+      font-size: 22px;
+    }
+    p:last-child {
+      font-size: 16px;
+    }
   }
 
   section:not(.main-section) .header h3 {

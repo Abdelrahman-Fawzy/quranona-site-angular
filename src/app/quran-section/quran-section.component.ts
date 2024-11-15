@@ -23,8 +23,6 @@ export class QuranSectionComponent implements OnInit {
   ngOnInit(): void {
     if (!localStorage.getItem('reciterId')) localStorage.setItem('reciterId', '123')
     this.reciterId = Number(localStorage.getItem('reciterId'))
-    console.log(this.reciterId);
-  
     this.mainFunction()
   }
 
@@ -49,7 +47,6 @@ export class QuranSectionComponent implements OnInit {
 
   getAllReciters() {
     this.quranService.getAllReciters().subscribe((recitersList: any) => {
-      console.log(recitersList);
       this.reciters = recitersList.reciters.filter((reciter: any) => {
         return reciter.id == 123 
               || reciter.id == 112
@@ -68,7 +65,6 @@ export class QuranSectionComponent implements OnInit {
               || reciter.id == 92
       })
 
-      console.log(this.reciters);
       this.reciters.forEach((reciter: any) => {
         if (reciter.id == localStorage.getItem('reciterId')) {
           recitersList.innerHTML += 
@@ -94,16 +90,12 @@ export class QuranSectionComponent implements OnInit {
   }
   getQuranDefinitions() {
     this.quranService.getQuranDefinitions().subscribe((quranDefinition: any) => {
-      console.log(quranDefinition);
       this.surahs = quranDefinition.data.surahs
     })
   }
 
   openAyatBox(surah: any) {
     let ayatBox: any = document.querySelector('.ayat-box');
-    console.log(ayatBox);
-    console.log(surah);
-    
     ayatBox.classList.add('active')
     document.body.style.overflow = 'hidden';
 
@@ -121,9 +113,6 @@ export class QuranSectionComponent implements OnInit {
   playAudio(url: any, index: number) {
     let playButtons = document.querySelectorAll('.play-button')
     let playButtonsResponsive = document.querySelectorAll('.play-button.responsive')
-
-    console.log(playButtonsResponsive);
-    
     
     if (this.currentAudio && this.currentAudio.src === url) {
       this.currentAudio.pause();
@@ -171,11 +160,8 @@ export class QuranSectionComponent implements OnInit {
     let reciterId = Number(localStorage.getItem('reciterId')) || 123
     let player: any = document.querySelector('.quran-section .current-surah-playing')
     let audioPlayerBox: any = document.querySelector('.audio')
-    console.log(reciterId);
     this.surahName = surahName
     this.quranService.getSurahs(reciterId).subscribe((surah: any) => {
-      console.log(surah);
-      
       let transformedSurahIndex
       if (surahIndex < 10) transformedSurahIndex = '00' + (surahIndex)
       else if (surahIndex == 10) transformedSurahIndex = '0' + (surahIndex)
@@ -189,8 +175,6 @@ export class QuranSectionComponent implements OnInit {
           <source src="${this.surahUrl}" type="audio/mpeg">
         </audio>
       `
-      console.log(this.surahUrl);
-      
 
       let audioPlayer: any = document.querySelector('.audio audio')
       audioPlayer.addEventListener('ended', function () {
@@ -208,7 +192,6 @@ export class QuranSectionComponent implements OnInit {
   }
 
   filterSurahs(event: any) {
-    console.log(this.surahs);
     let surahsBox: any = document.querySelector('.surahs-box')
     for (let index = 0; index < this.surahs.length; index++) {
       let arabicWord = this.removeTashkeel(this.surahs[index].name)

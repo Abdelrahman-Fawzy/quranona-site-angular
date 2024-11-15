@@ -19,6 +19,9 @@
       </div>
       <div class="hadith">
         <p>{{hadith.hadithArabic}}</p>
+        <button class="bg-transparent border-0 p-0" (click)="copyHadith(hadith.hadithArabic)">
+          <i class="fa-regular fa-copy"></i>
+        </button>
       </div>
     </div>
     <p-paginator 

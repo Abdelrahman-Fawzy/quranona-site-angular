@@ -35,22 +35,16 @@ export class HadithSectionComponent implements OnInit {
 
   getHadithBooks() {
     this.hadithService.getHadithBooks().subscribe((book: any) => {
-      console.log(book.books);
       this.books = book.books.filter((book: any) => {
         return book.id != 9
           && book.id != 10;
       })
-      console.log(this.books);
     })
   }
   
   getHadithDefinitions(page: any) {
     this.hadithService.getHadithDefinitions(Number(page)).subscribe((hadith: any) => {
-      console.log(hadith);
-      
       this.hadith = hadith.hadiths
-      console.log(this.hadith);
-      
     })
   }
 

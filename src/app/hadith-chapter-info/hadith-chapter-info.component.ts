@@ -17,9 +17,7 @@ export class HadithChapterInfoComponent implements OnInit {
   bookDetails: any;
 
   constructor(private hadithService: HadithService, private route: ActivatedRoute) {
-    console.log(this.route);
     this.bookSlug = this.route.snapshot.params['bookSlug']
-    console.log(this.bookSlug);
     this.hadithBooks = [
       {
         bookNameAr: 'صحيح البخاري',
@@ -69,8 +67,6 @@ export class HadithChapterInfoComponent implements OnInit {
   ngOnInit(): void {
     this.getHadithChapters()
     this.bookDetails = this.hadithBooks.filter((hadithBook: any) => hadithBook.bookSlug == this.bookSlug)[0]
-    console.log(this.bookDetails);
-    
   }
 
   getHadithChapters(): void {
